@@ -1,0 +1,21 @@
+METHODOLOGY:
+
+Server:
+	Include the necessary header files.
+	Create a socket using socket function with family AF_INET, type as SOCK_STREAM.
+	Initialize server address to 0 using the bzero function.
+	Assign the sin_family to AF_INET, sin_addr to INADDR_ANY, sin_port to statically assigned port number.
+	Bind the local host address to socket using the bind function.
+	Within a for loop, accept connection request from the client using accept function.
+	Use the fork system call to spawn the processes.
+	Calculate the current date and time using the ctime() function. Change the format so that it is appropriate for human readable form and send the date and time to the client using the write function.
+Client:	
+	Include the necessary header files.
+	Create a socket using  socket function with family AF_INET, type as SOCK_STREAM.
+	Initialize server address to 0 using the bzero function.
+	Assign the sin_family to AF_INET.
+	Get the server IP address from the console.
+	Using gethostbyname function assign it to a hostent structure, and assign it to sin_addr of the server address structure.
+	Request a connection from the server using the connect function.
+	Within an infinite loop, receive the date and time from the server using the read function and print the date and time on the console.
+
